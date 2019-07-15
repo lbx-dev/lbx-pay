@@ -1,0 +1,110 @@
+$lbx-decoration-size: 1000px;
+
+.theme--light.application {
+  background-color: white !important;
+}
+html, body {
+  overflow: hidden;
+}
+
+.lbx-toolbar {
+  &.transparent {
+    background-color: transparent;
+  }
+
+  &.landing * {
+    color: white;
+  }
+
+}
+
+.lbx-toolbar > div {
+  margin-left: 0 !important;
+}
+
+.lbx-logo {
+  display: inline-block;
+  max-height: 64px;
+  margin-top: 5px;
+  height: 64px;
+  width: 200px;
+  background: url(../static/images/logo/logo.svg);
+  background-size: 400% 400%;
+  background-position: center;
+}
+
+.lbx-logo.sm {
+  background-size: 300% 300%;
+  width: 150px;
+}
+
+.lbx-image-picker input {
+  cursor: pointer !important;
+}
+
+.lbx-main-container {
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+
+  * {
+    z-index: 2;
+  }
+}
+
+.lbx-footer {
+  height: 65px;
+}
+
+
+.lbx-language-picker {
+  position: absolute !important;
+  z-index: 1000;
+  left:calc(100% - 60px);
+  right: 10px;
+  top: 20px;
+  .v-label {
+    display: none;
+  }
+  .v-text-field > .v-input__control > .v-input__slot::before {
+    border-color: transparent !important;
+  }
+  .v-input__append-inner {
+    display: none !important;
+  }
+  .v-input__slot {
+    width: 30px;
+  }
+  img {
+    border: 1px rgba(0, 0, 0, 0.05) solid;
+  }
+}
+.lbx-language-picker.access {
+  top:30px;
+  right:10px;
+}
+.lbx-menu.landing {
+  display: none;
+}
+
+
+@media screen and (max-width: 1263px) {
+
+  .lbx-decoration-products {
+    display: none;
+  }
+  .atlas-landing-items {
+    .v-btn {
+      right: 0;
+    }
+  }
+  .lbx-logo.atlas-headline {
+    background: url(../static/images/logo/logo-white.svg);
+    background-size: 350% 350%;
+    background-position: center;
+  }
+
+}

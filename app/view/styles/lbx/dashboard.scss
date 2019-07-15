@@ -1,0 +1,16 @@
+.lbx-partner-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.lbx-partner-subtitle {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+
+@media screen and (max-width: 1263px) {
+  .lbx-partner-title {
+    font-size: 25px !important;
+  }
+}

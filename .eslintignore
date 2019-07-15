@@ -1,0 +1,5 @@
+node_modules/
+documentation/
+.nuxt/
+app_fork/
+components.js

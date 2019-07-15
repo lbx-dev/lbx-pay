@@ -1,0 +1,23 @@
+export default {
+  TITLE: 'Partner organizations',
+  HEAD: 'Partner organizations',
+  HEAD_DETAILS: 'Partner details',
+  HEADER_ID: 'ID',
+  HEADER_NAME: 'Name',
+  HEADER_TYPE: 'Type',
+  HEADER_IDENTIFICATION: 'Identification',
+  HEADER_COUNTRY: 'Country',
+  HEADER_CITY: 'City',
+  HEADER_ADDRESS: 'Address',
+  HEADER_POSTAL_CODE: 'Postal code',
+  HEADER_VERIFIED: 'Verified',
+  HEADER_CREATED: 'Created',
+  HEADER_UPDATED: 'Updated',
+  HEADER_DELETED: 'Deleted',
+  LABEL_SEARCH: 'Search',
+  LABEL_INDIVIDUAL: 'Individual',
+  LABEL_COMPANY: 'Company',
+  LABEL_ROWS_PER_PAGE: 'Results per page',
+  LABEL_VERIFIED: 'Yes',
+  LABEL_UNVERIFIED: 'No'
+};

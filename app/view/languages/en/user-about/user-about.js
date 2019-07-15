@@ -1,0 +1,21 @@
+export default {
+  TITLE: 'About partner',
+  HEAD: 'About partner',
+  NAME_LABEL: 'Name',
+  IDENTIFICATION_LABEL: 'Identification',
+  TYPE_LABEL: 'Partner type',
+  COUNTRY_PICKER_LABEL: 'Country',
+  ID_CARD_LABEL: 'Upload identification',
+  CITY_LABEL: 'City',
+  POSTAL_CODE_LABEL: 'Postal/ZIP code',
+  ADDRESS_LABEL: 'Address',
+  ORIGIN_PROOF_LABEL: 'Upload proof of origin',
+  CREATE_PARTNER_BUTTON: 'Create',
+  TYPE_COMPANY: 'Company',
+  TYPE_PERSON: 'Person',
+  TOOLTIP_IDENTIFICATION: 'State issued ID where your name is clearly visible',
+  TOOLTIP_ORIGIN: 'A document that proves your origin. Can be bill for electricity, telephone etc.',
+  PARTNER_CREATED_SUCCESSFULLY: 'Saving successful',
+  PARTNER_UPDATE_ALERT: 'If you update the partner our team will have to re-verify changes',
+  PARTNER_UNVERIFIED_ALERT: 'Our team will verify your details soon'
+};

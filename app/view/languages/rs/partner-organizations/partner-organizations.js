@@ -1,0 +1,23 @@
+export default {
+  TITLE: 'Partnerske organizacije',
+  HEAD: 'Partnerske organizacije',
+  HEAD_DETAILS: 'Detaljnije o partneru',
+  HEADER_ID: 'ID',
+  HEADER_NAME: 'Ime',
+  HEADER_TYPE: 'Tip',
+  HEADER_IDENTIFICATION: 'Identifikaacija',
+  HEADER_COUNTRY: 'Zemlja',
+  HEADER_CITY: 'Grad',
+  HEADER_ADDRESS: 'Adresa',
+  HEADER_POSTAL_CODE: 'Poštanski broj',
+  HEADER_VERIFIED: 'Verifikovan',
+  HEADER_CREATED: 'Napravljen',
+  HEADER_UPDATED: 'Ažuriran',
+  HEADER_DELETED: 'Obrisan',
+  LABEL_SEARCH: 'Pretraga',
+  LABEL_INDIVIDUAL: 'Osoba',
+  LABEL_COMPANY: 'Kompanija',
+  LABEL_ROWS_PER_PAGE: 'Rezultata na strani',
+  LABEL_VERIFIED: 'Da',
+  LABEL_UNVERIFIED: 'Ne'
+};

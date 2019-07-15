@@ -1,0 +1,21 @@
+export default {
+  TITLE: 'O Partneru',
+  HEAD: 'O Partneru',
+  NAME_LABEL: 'Ime',
+  IDENTIFICATION_LABEL: 'Identifikacija',
+  TYPE_LABEL: 'Tip partnera',
+  COUNTRY_PICKER_LABEL: 'Država',
+  ID_CARD_LABEL: 'Potvrda identiteta',
+  CITY_LABEL: 'Grad',
+  POSTAL_CODE_LABEL: 'Poštanski broj',
+  ADDRESS_LABEL: 'Adresa',
+  ORIGIN_PROOF_LABEL: 'Potvrda mesta prebivališta',
+  CREATE_PARTNER_BUTTON: 'Napravi',
+  TYPE_COMPANY: 'Pravno lice',
+  TYPE_PERSON: 'Fizičko lice',
+  TOOLTIP_IDENTIFICATION: 'Dokument gde se jasno vidi vaše ime',
+  TOOLTIP_ORIGIN: 'Dokument gde se jasno prebivalište. Račun za struju, telefon i slično',
+  PARTNER_CREATED_SUCCESSFULLY: 'Uspešno sačuvano',
+  PARTNER_UPDATE_ALERT: 'Ukoliko ažurirate partnera naš tim će morati ponovo da verifikuje izmene',
+  PARTNER_UNVERIFIED_ALERT: 'Naš tim će uskoro verifikovati Vaše podatke'
+};

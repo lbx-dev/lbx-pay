@@ -1,0 +1,7 @@
+.idea/
+npm-debug.log*
+.DS_Store
+yarn.lock
+yarn-error.log
+.nuxt/
+node_modules/*

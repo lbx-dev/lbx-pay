@@ -1,0 +1,81 @@
+{
+  "name": "atlas-gps-mount-olympus",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "artillery": "artillery",
+    "apidoc": "apidoc",
+    "generate-documentation": "apidoc -i app/ -o documentation/",
+    "seed": "NODE_PATH=. node app/database/seeding/seeding.service.js",
+    "nuxt": "nuxt",
+    "eslint": "eslint",
+    "fix": "eslint --fix .",
+    "mocha": "mocha",
+    "lint-test": "bash test.sh -l",
+    "unit-test": "bash test.sh -u",
+    "integration-test": "bash test.sh -i",
+    "automatic-integration-test": "bash test.sh -ai",
+    "test": "bash test.sh -u && bash test.sh -l"
+  },
+  "pre-commit": {
+    "run": [
+      "lint-test",
+      "unit-test"
+    ]
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/proxy": "^1.3.3",
+    "apidoc": "^0.17.7",
+    "artillery": "^1.6.0-27",
+    "axios": "^0.19.0",
+    "babel-polyfill": "^6.26.0",
+    "bluebird": "^3.5.4",
+    "body-parser": "^1.18.3",
+    "chart.js": "^2.8.0",
+    "chokidar": "^2.1.5",
+    "cookie-parser": "^1.4.4",
+    "css-loader": "^2.1.1",
+    "express": "^4.16.4",
+    "fb": "^2.0.0",
+    "flag-icon-css": "^3.3.0",
+    "globby": "^9.2.0",
+    "js-cookie": "^2.2.0",
+    "keccak": "^2.0.0",
+    "knex": "^0.16.5",
+    "material-design-icons-iconfont": "^4.0.5",
+    "node-sass": "github:sass/node-sass",
+    "nodemailer": "^6.1.1",
+    "npm": "^6.9.0",
+    "nuxt": "^2.6.2",
+    "nuxt-i18n": "^5.8.5",
+    "nuxt-material-design-icons": "^1.0.4",
+    "path-pattern": "^2.1.1",
+    "pg": "^7.10.0",
+    "rimraf": "^2.6.3",
+    "sass-loader": "^7.1.0",
+    "serve-static": "^1.13.2",
+    "sqlite3": "github:mapbox/node-sqlite3",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "tar": "^4.4.8",
+    "vue-flag-icon": "^1.0.6",
+    "vuetify": "^1.5.13",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-mocha": "^5.3.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "mocha": "^6.1.4",
+    "pre-commit": "^1.2.2"
+  }
+}

@@ -1,0 +1,23 @@
+export default {
+  NO_FIRST_NAME: 'Ime je neophodno',
+  INVALID_FIRST_NAME_TOO_LONG: 'Ime je previše dugačko',
+  NO_LAST_NAME: 'Prezime je neophodno',
+  INVALID_LAST_NAME_TOO_LONG: 'Prezme je previše dugačko',
+  NO_EMAIL: 'e-mail adresa je neophodna',
+  INVALID_EMAIL: 'e-mail adresa nije validna',
+  PASSWORDS_DO_NOT_MATCH: 'Lozinke se ne poklapaju',
+  NO_PARTNER_NAME: 'Ime je neophodno',
+  PARTNER_NAME_TOO_LONG: 'Ime je previše dugačko',
+  NO_PARTNER_IDENTIFICATION: 'Identifikacija je neophodna',
+  PARTNER_IDENTIFICATION_TOO_LONG: 'Identifikacija je previše dugačka',
+  PARTNER_NO_ADDRESS: 'Adresa je neophodna',
+  PARTNER_ADDRESS_TOO_LONG: 'Predugačka adresa',
+  PARTNER_NO_CITY: 'Grad je neophodan',
+  PARTNER_CITY_TOO_LONG: 'Predugačak naziv grada',
+  PARTNER_NO_POSTAL_CODE: 'Poštanski broj je neophodan',
+  PARTNER_INVALID_POSTAL_CODE: 'Poštanski broj nije validan',
+  NO_ID_IMAGE: 'Slika potvrde identiteta je neophodna',
+  INVALID_ID_IMAGE: 'Slika nije validna',
+  NO_ORIGIN_CONFIRMATION_IMAGE: 'Slika koja potvrđuje mesto prebivališta je neophodna',
+  INVALID_ID_ORIGIN_CONFIRMATION_IMAGE: 'Slika nije validna'
+};

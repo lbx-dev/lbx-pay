@@ -1,0 +1,23 @@
+export default {
+  NO_FIRST_NAME: 'First name is required',
+  INVALID_FIRST_NAME_TOO_LONG: 'First name is too long',
+  NO_LAST_NAME: 'Last name is required',
+  INVALID_LAST_NAME_TOO_LONG: 'Last name is too long',
+  NO_EMAIL: 'Email is required',
+  INVALID_EMAIL: 'Invalid e-mail address',
+  PASSWORDS_DO_NOT_MATCH: 'Passwords do not match',
+  NO_PARTNER_NAME: 'Name is required',
+  PARTNER_NAME_TOO_LONG: 'Name is too long',
+  NO_PARTNER_IDENTIFICATION: 'Identification is required',
+  PARTNER_IDENTIFICATION_TOO_LONG: 'Identification is too long',
+  PARTNER_NO_ADDRESS: 'Address is required',
+  PARTNER_ADDRESS_TOO_LONG: 'Address is too long',
+  PARTNER_NO_CITY: 'City is required',
+  PARTNER_CITY_TOO_LONG: 'City name is too long',
+  PARTNER_NO_POSTAL_CODE: 'Postal/ZIP number is required',
+  PARTNER_INVALID_POSTAL_CODE: 'Postal/ZIP number is invalid',
+  NO_ID_IMAGE: 'Identification image is required',
+  INVALID_ID_IMAGE: 'Invalid image',
+  NO_ORIGIN_CONFIRMATION_IMAGE: 'Origin proof image is necessary',
+  INVALID_ID_ORIGIN_CONFIRMATION_IMAGE: 'Invalid image'
+};

@@ -1,0 +1,68 @@
+.lbx-table.striped table tbody > tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, .03) !important;
+}
+.lbx-table {
+  tr {
+    cursor:pointer;
+  }
+}
+
+
+.display-2, .display-3 {
+  font-weight: 600 !important;
+}
+.info--text {
+  color: $brand-info !important;
+}
+
+.normal {
+  color: #000 !important;
+}
+
+.gray--text {
+  color: $gray !important;
+}
+
+.v-input--is-focused .v-input__slot::after {
+  border-color: $brand-info !important;
+}
+
+.lbx-alert {
+  font-weight: bold !important;
+  color: rgba($brand-info, 1) !important;
+  background-color: rgba($brand-info, .2) !important;
+  padding: 10px;
+  border: 1px solid !important;
+
+  &.error {
+    color: rgba($brand-danger, 1) !important;
+    background-color: rgba($brand-danger, .2) !important;
+  }
+
+  &.warning {
+    color: rgba($brand-warning, 1) !important;
+    background-color: rgba($brand-warning, .2) !important;
+  }
+}
+
+.error--text, .error--text * {
+  color: $brand-danger !important;
+  border-color: $brand-danger !important;
+
+  .v-input__control {
+    .v-input__slot::before {
+      border-color: $brand-danger !important
+    }
+  }
+}
+.atlas-pagination {
+  box-shadow: none !important;
+
+  * {
+    box-shadow: none !important;
+  }
+
+}
+.theme--light.v-icon {
+  color: rgba(0,0,0,.38) !important;
+}
