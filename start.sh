@@ -18,7 +18,7 @@ case "$type" in
 
         npm install;
         echo "Building nuxt";
-        npm run nuxt build -c app/view/nuxt.config.js
+        npm run nuxt build -- -c app/view/nuxt.config.js
 
         knex migrate:latest;
         node app/database/seeding/seeding.service.js initial;
