@@ -9,8 +9,6 @@ git reset --hard origin/master;
 git pull origin master;
 chmod +x start.sh;
 
-npm run seed staging;
-
 ./start.sh -s;
 
 exit;

@@ -26,7 +26,7 @@ case "$type" in
         mkdir -p ${DIR}/app/database/memory;
         node app/database/memory-migrations/memory-migrations.service.js;
 
-        screen -dmS atlas_mount_olympus node index.js &
+        screen -dmS lbx-pay node index.js &
         ;;
     "--integration-testing" | "-it")
         export NODE_ENV=staging;

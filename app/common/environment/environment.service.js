@@ -13,7 +13,7 @@ function getBaseUrl() {
   } else if(environment === 'staging' && process.env.INTEGRATION_TESTING) {
     return 'http://localhost:3010';
   } else if(environment === 'staging') {
-    return 'https://staging.pay.lbx.com';
+    return 'https://staging-pay.lbx.com';
   } else if(environment === 'production') {
     return 'https://pay.lbx.com';
   }
