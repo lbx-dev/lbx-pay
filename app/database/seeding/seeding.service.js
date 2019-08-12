@@ -5,7 +5,7 @@ const databaseConfiguration = require('configuration/database/database-configura
 const knex = require('knex');
 const persistence = knex(databaseConfiguration.persistence);
 
-const { DELETE_SCHEMA, CREATE_SCHEMA, CLEAR_DATABASE, ROLES_EXISTS, INSERT_ROLES, INSERT_ADMINISTRATOR, INSERT_USER, INSERT_COUNTRIES } = require('./sql/seeding.sql');
+const { DELETE_SCHEMA, CREATE_SCHEMA, CLEAR_DATABASE, ROLES_EXISTS, INSERT_ROLES, INSERT_ADMINISTRATOR, INSERT_USER, INSERT_GROWTH_BONDS } = require('./sql/seeding.sql');
 
 function clearLegal() {
   rimraf.sync(__dirname + '/../../legal/partners/*');
@@ -53,6 +53,7 @@ async function seedInitial() {
     }
     await t.raw(INSERT_ADMINISTRATOR);
     await t.raw(INSERT_USER);
+    await t.raw(INSERT_GROWTH_BONDS);
   }
 
   try {

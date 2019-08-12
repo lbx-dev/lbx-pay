@@ -1,5 +1,4 @@
 postgres:
-    container_name: lbx-postgres
     image: postgres:latest
     ports:
       - "15432:5432"

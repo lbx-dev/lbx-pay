@@ -36,5 +36,11 @@ module.exports = {
   RESTORE_PASSWORD_POSSIBLE: { code: httpStatus.OK, payload: 'Proceed to restoring password' },
   RESTORE_PASSWORD_IMPOSSIBLE: { code: httpStatus.NOT_FOUND, payload: 'Cannot find restoration token. Try again' },
   RESTORE_PASSWORD_SUCCESS: { code: httpStatus.OK, payload: 'Password updated successfully' },
-  ROLES_UNAUTHORIZED: { code: httpStatus.UNAUTHORIZED, payload: 'You are not authorized to see this' }
+  ROLES_UNAUTHORIZED: { code: httpStatus.UNAUTHORIZED, payload: 'You are not authorized to see this' },
+  DEPOSIT_TOO_LARGE: { code: httpStatus.BAD_REQUEST, payload: 'Deposit is too large, max is 10,000 BTC' },
+  DEPOSIT_INVALID_BOND_ID: { code: httpStatus.BAD_REQUEST, payload: 'Invalid bond id' },
+  DEPOSIT_INVALID_AMOUNT: { code: httpStatus.BAD_REQUEST, payload: 'Invalid amount' },
+  DEPOSIT_INVALID_DETAILS: { code: httpStatus.BAD_REQUEST, payload: 'Invalid details' },
+  DEPOSIT_NO_SUCH_GROWTH_PLAN: { code: httpStatus.BAD_REQUEST, payload: 'No such growth plan' },
+  DEPOSIT_SUCCESS: { code: httpStatus.CREATED, payload: 'Deposit succeeded' }
 };

@@ -70,6 +70,10 @@ class Server {
     require('app/api/authentication/restore-password/post/restore/restore-password.route')(this.app);
     require('app/api/roles/get/all/roles.route')(this.app);
     require('app/api/categories/get/all/categories.route')(this.app);
+    require('app/api/pay/get/balance/pay.route')(this.app);
+    require('app/api/pay/get/growth-bonds/pay.route')(this.app);
+
+    require('app/api/pay/post/deposit/pay.route')(this.app);
   }
   includeMiddlewares() {
     logger.info('Including middlewares');

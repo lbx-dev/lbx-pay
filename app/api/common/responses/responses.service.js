@@ -12,6 +12,9 @@ const rs = require('./rs/rs-RS');
 
 const responses = { us, rs };
 
+function invalidCall(code, payload) {
+  return { code, payload };
+}
 function validCall(payload) {
   return {
     code: httpStatus.OK, payload: payload
@@ -40,7 +43,7 @@ const composeEmail = {
             ${baseURL}/${language}/confirm-registration/${user.confirmationToken}
             
             Best regards,
-            Klitstarter concierge service
+            LBX Pay
             `,
         html: `
             <p>
@@ -57,7 +60,7 @@ const composeEmail = {
                 Best regards,
             </p>
             <p>
-                Klitstarter concierge service
+               LBX Pay
             </p>`
       };
     } else if(language === 'rs') {
@@ -75,7 +78,7 @@ const composeEmail = {
             ${baseURL}/${language}/potvrda-registracije/${user.confirmationToken}
             
             Sve najbolje,
-            Klitstarter servis
+            LBX Pay
             `,
         html: `
             <p>
@@ -92,7 +95,7 @@ const composeEmail = {
                 sve najbolje,
             </p>
             <p>
-                Klitstarter servis
+                LBX Pay
             </p>`
       };
     }
@@ -111,7 +114,7 @@ const composeEmail = {
             ${baseURL}/restore-password/${user.restorationToken}
             If this was not you please disregard or report this email.
             Best regards,
-            Klitstarter team
+            LBX Pay
           `,
         html: `
             <p>
@@ -124,7 +127,7 @@ const composeEmail = {
             </p> 
             <p>
               Best regards,
-              Klitstarter team
+              LBX Pay
             </p>`
       };
     } else if(language === 'rs') {
@@ -140,7 +143,7 @@ const composeEmail = {
             ${baseURL}/access/restore-password/${user.restorationToken}
             Ukoliko to niste bili Vi slobodno ignorišite ili prijavite ovaj mejl.
             Sve najbolje,
-            Klitstarter servis
+            LBX Pay
           `,
         html: `
             <p>
@@ -153,7 +156,7 @@ const composeEmail = {
             </p> 
             <p>
               Sve najbolje,
-              Klitstarter servis
+              LBX Pay
             </p>`
       };
     }
@@ -171,6 +174,7 @@ Promise.promisifyAll(transporter);
 
 module.exports = {
   responses,
+  invalidCall,
   validCall,
   successfulCreation,
   composeEmail,

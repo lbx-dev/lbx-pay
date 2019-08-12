@@ -36,5 +36,11 @@ module.exports = {
   RESTORE_PASSWORD_POSSIBLE: { code: httpStatus.OK, payload: 'Nastavite na vraćanje lozinke' },
   RESTORE_PASSWORD_IMPOSSIBLE: { code: httpStatus.NOT_FOUND, payload: 'Token za vraćanje lozinke nije pronađen. Pokušajte ponovo' },
   RESTORE_PASSWORD_SUCCESS: { code: httpStatus.OK, payload: 'Uspešno promenjena lozinka' },
-  ROLES_UNAUTHORIZED: { code: httpStatus.UNAUTHORIZED, payload: 'Nemate pristup ovome' }
+  ROLES_UNAUTHORIZED: { code: httpStatus.UNAUTHORIZED, payload: 'Nemate pristup ovome' },
+  DEPOSIT_TOO_LARGE: { code: httpStatus.BAD_REQUEST, payload: 'Depozit je preveliki maksimum je 10000 BTC' },
+  DEPOSIT_INVALID_BOND_ID: { code: httpStatus.BAD_REQUEST, payload: 'ID obveznice nije validan' },
+  DEPOSIT_INVALID_AMOUNT: { code: httpStatus.BAD_REQUEST, payload: 'Količina nije validna' },
+  DEPOSIT_INVALID_DETAILS: { code: httpStatus.BAD_REQUEST, payload: 'Detalji poziva nisu validni' },
+  DEPOSIT_NO_SUCH_GROWTH_PLAN: { code: httpStatus.BAD_REQUEST, payload: 'Nije pronađen plan štednje' },
+  DEPOSIT_SUCCESS: { code: httpStatus.CREATED, payload: 'Uspešan depozit' }
 };

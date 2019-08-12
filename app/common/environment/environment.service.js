@@ -18,7 +18,6 @@ function getBaseUrl() {
     return 'https://pay.lbx.com';
   }
   return 'http://localhost:3010';
-
 }
 
 module.exports = {

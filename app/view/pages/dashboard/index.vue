@@ -13,11 +13,8 @@
       }
     },
     created() {
-      console.log('dashboard')
       const user = this.$store.getters['user/getUser'];
       const rolesObject = this.$store.getters['common/getRolesObject'];
-
-      console.log('dashboard st')
 
       if(rolesObject.ADMINISTRATOR === user.role.id) {
         return this.$router.replace(this.localePath({ name: 'administrator' }));
