@@ -4,6 +4,7 @@ import Vue from 'vue'
 
 // noinspection JSUnresolvedFunction
 Vue.component(' v-ripple', { })
+Vue.component(' v-list-item', { })
 // noinspection JSUnresolvedFunction
 Vue.component('v-app', {
   props: {

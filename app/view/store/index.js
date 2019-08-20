@@ -4,6 +4,7 @@ import RegistrationStore from './authorization/registration/registration.store';
 import ForgotPasswordStore from './authorization/forgot-password/forgot-password.store';
 import RestorePasswordStore from './authorization/restore-password/restore-password.store';
 import LanguageStore from './languages/languages.store';
+import PayStore from './pay/pay.store';
 
 
 export default {
@@ -14,7 +15,8 @@ export default {
     registration: RegistrationStore,
     forgotPassword: ForgotPasswordStore,
     restorePassword: RestorePasswordStore,
-    languages: LanguageStore
+    languages: LanguageStore,
+    pay: PayStore
   },
   actions: {
     async nuxtServerInit({ dispatch, commit }, { req, app }) {

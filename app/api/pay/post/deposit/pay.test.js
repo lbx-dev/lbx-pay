@@ -16,6 +16,8 @@ const bodies = {
     a: 'sda'
   } ],
   valid: [ {
+    bondId: '0e6a7881-1560-4c57-8257-37d6facfdd64'
+  }, {
     amount: '1111111111',
     bondId: '0e6a7881-1560-4c57-8257-37d6facfdd64'
   } ]

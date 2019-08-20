@@ -20,7 +20,10 @@ module.exports = {
   REGISTRATION_INVALID_FIRST_NAME: { code: httpStatus.BAD_REQUEST, payload: 'Invalid first name' },
   REGISTRATION_INVALID_LAST_NAME: { code: httpStatus.BAD_REQUEST, payload: 'Invalid last name' },
   REGISTRATION_INVALID_ROLE_ID: { code: httpStatus.BAD_REQUEST, payload: 'Invalid role id' },
-  REGISTRATION_CANNOT_BE_ADMINISTRATOR: { code: httpStatus.BAD_REQUEST, payload: 'You cannot register to be administrator' },
+  REGISTRATION_CANNOT_BE_ADMINISTRATOR: {
+    code: httpStatus.BAD_REQUEST,
+    payload: 'You cannot register to be administrator'
+  },
   REGISTRATION_INVALID_EMAIL: { code: httpStatus.BAD_REQUEST, payload: 'Invalid email' },
   REGISTRATION_NO_PASSWORD: { code: httpStatus.BAD_REQUEST, payload: 'No password provided' },
   REGISTRATION_FAILED_USER_ALREADY_REGISTERED: { code: httpStatus.CONFLICT, payload: 'User already registered' },
@@ -42,5 +45,6 @@ module.exports = {
   DEPOSIT_INVALID_AMOUNT: { code: httpStatus.BAD_REQUEST, payload: 'Invalid amount' },
   DEPOSIT_INVALID_DETAILS: { code: httpStatus.BAD_REQUEST, payload: 'Invalid details' },
   DEPOSIT_NO_SUCH_GROWTH_PLAN: { code: httpStatus.BAD_REQUEST, payload: 'No such growth plan' },
-  DEPOSIT_SUCCESS: { code: httpStatus.CREATED, payload: 'Deposit succeeded' }
+  DEPOSIT_SUCCESS: { code: httpStatus.CREATED, payload: 'Deposit succeeded' },
+  ESTIMATE_FEE_NO_AMOUNT: { code: httpStatus.BAD_REQUEST, payload: 'No amount found' }
 };

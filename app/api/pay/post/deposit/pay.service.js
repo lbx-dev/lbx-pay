@@ -8,17 +8,16 @@ const payService = require('app/api/common/pay/LBXPay');
 const logger = require('app/common/log/logger.service');
 
 function validateCall(body, language) {
-  if(Object.keys(body).length !== 2) {
+  if(Object.keys(body).length > 2) {
     return responses[language].DEPOSIT_INVALID_DETAILS;
   }
   if(!isUUID(body.bondId)) {
     return responses[language].DEPOSIT_INVALID_BOND_ID;
   }
-  if(isNaN(bigNumber(body.amount))) {
+  if(body.amount && isNaN(bigNumber(body.amount))) {
     return responses[language].DEPOSIT_INVALID_AMOUNT;
   }
-
-  if(body.amount.length > 13) {
+  if(body.amount && body.amount.length > 13) {
     return responses[language].DEPOSIT_INVALID_AMOUNT;
   }
 }
@@ -61,5 +60,18 @@ async function saveDeposit(userId, body, language) {
     `);
   }
 }
+async function depositAll(userId, body, language) {
+  const { data: amount } = await payService.getAddressBalance(userId);
 
-module.exports = { validateCall, saveDeposit };
+  const totalAmount = amount.available_balance;
+  body.amount = totalAmount;
+
+  try {
+    await payService.estimateNetworkFee(totalAmount, userId);
+  } catch({ message }) {
+    const splits = message.split(' ');
+    body.amount = splits[splits.length - 2];
+  }
+  return await saveDeposit(userId, body, language);
+}
+module.exports = { validateCall, depositAll, saveDeposit };

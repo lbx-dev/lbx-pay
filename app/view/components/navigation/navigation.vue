@@ -48,9 +48,6 @@
       <v-toolbar-title>
         <span class="lbx-logo sm"></span>
       </v-toolbar-title>
-      <v-toolbar-title>
-        {{ header }}
-      </v-toolbar-title>
       <v-spacer />
       <v-toolbar-items class="atlas-items">
         <language-picker />

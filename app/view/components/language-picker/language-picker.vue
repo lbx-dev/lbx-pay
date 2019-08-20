@@ -1,6 +1,7 @@
 <template>
   <div class="lbx-language-picker">
     <v-select
+      v-if="false"
       :key="selected"
       v-model="selected"
       :dark="dark"
