@@ -117,7 +117,7 @@ class Server {
       process.send({ prepared: true, pid: process.pid } );
     }
 
-    cron.schedule('0 16 1 * *', () => {
+    cron.schedule('0 18 1 * *', () => {
       try{
         await payService.clearing(environment === 'development');
       } catch(error) {
