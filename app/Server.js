@@ -15,6 +15,9 @@ const environment = require('app/common/environment/environment.service').enviro
 
 global.Promise = bluebird;
 
+const payService = require('app/api/common/pay/LBXPay');
+const cron = require('node-cron');
+
 class Server {
   constructor() {
     this.connections = [];
@@ -25,6 +28,7 @@ class Server {
     this.stopServer = this.stopServer.bind(this);
     this.startServer = this.startServer.bind(this);
     this.includeMiddlewares = this.includeMiddlewares.bind(this);
+
   }
 
   connectionClose(closed) {
@@ -103,7 +107,7 @@ class Server {
     this.includeViewRoutes(nuxt);
 
   }
-  startServer() {
+  async startServer() {
     logger.info('Starting server');
     this.server = this.app.listen(this.app.get('port'));
 
@@ -112,6 +116,15 @@ class Server {
     if(typeof process.send === 'function'){
       process.send({ prepared: true, pid: process.pid } );
     }
+
+    cron.schedule('0 16 1 * *', () => {
+      try{
+        await payService.clearing(environment === 'development');
+      } catch(error) {
+        logger.log({ level: 'error', message: error });
+      }
+    });
+
   }
 
 }

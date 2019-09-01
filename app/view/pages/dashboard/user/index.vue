@@ -67,8 +67,11 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-    <div class="display-1 lbx-partner-title">
-      Wallets
+    <div class="display-2 lbx-partner-title">
+      LBX Wallets
+    </div>
+    <div class="display-1">
+      Load and withdraw your crypto assets
     </div>
     <v-layout
       d-flex>
@@ -86,28 +89,28 @@
           <v-list class="transparent">
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title> Address </v-list-tile-title>
+                <v-list-tile-title> Address</v-list-tile-title>
                 <v-list-tile-sub-title> {{ address }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-divider />
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title> Available balance </v-list-tile-title>
-                <v-list-tile-sub-title> {{ availableBalance }}</v-list-tile-sub-title>
+                <v-list-tile-title> Available balance</v-list-tile-title>
+                <v-list-tile-sub-title> {{ availableBalance ? availableBalance : '-' }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-divider />
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title> Pending balance </v-list-tile-title>
+                <v-list-tile-title> Pending balance</v-list-tile-title>
                 <v-list-tile-sub-title> {{ pendingBalance ? pendingBalance : '-' }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
             <v-divider />
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title> QR </v-list-tile-title>
+                <v-list-tile-title> QR</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
             <canvas class="lbx-qr-code"></canvas>
@@ -115,8 +118,9 @@
           <v-card-actions>
             <v-btn
               color="black"
-              @click="dialog = true"
-              text>
+              text
+              :disabled="!isAvailable"
+              @click="dialog = true">
               Deposit
             </v-btn>
             <v-btn
@@ -159,19 +163,27 @@
         availableBalance: state => state.pay.availableBalance,
         growthBonds: state => state.pay.growthBonds
       }),
-      preventSubmission() { return !this.selectedBond; }
+      preventSubmission() {
+        return !this.selectedBond;
+      },
+      isAvailable() {
+        return !!Number(this.availableBalance);
+      }
     },
     async beforeCreate() {
       await this.$store.dispatch('pay/DO_GET_BALANCE');
       this.$store.dispatch('pay/DO_GET_GROWTH_BONDS');
     },
     mounted() {
-      QRCode.toCanvas(document.querySelector('.lbx-qr-code'), this.address);
+      this.drawQR();
     },
     updated() {
-      QRCode.toCanvas(document.querySelector('.lbx-qr-code'), this.address);
+      this.drawQR();
     },
     methods: {
+      drawQR() {
+        QRCode.toCanvas(document.querySelector('.lbx-qr-code'), this.address);
+      },
       async depositBTC() {
         this.depositing = true;
         await this.$store.dispatch('pay/DO_DEPOSIT', { bondId: this.selectedBond });
@@ -183,7 +195,10 @@
 </script>
 
 <style scoped>
-  .bond-option { cursor: pointer; }
+  .bond-option {
+    cursor: pointer;
+  }
+
   .selected {
     box-shadow: 0 0 3px #cb1d36;
   }

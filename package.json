@@ -55,6 +55,7 @@
     "keccak": "^2.0.0",
     "knex": "^0.16.5",
     "material-design-icons-iconfont": "^4.0.5",
+    "node-cron": "^2.0.3",
     "node-sass": "github:sass/node-sass",
     "nodemailer": "^6.1.1",
     "npm": "^6.9.0",

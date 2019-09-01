@@ -2,8 +2,10 @@ const configuration = require('configuration/block-io/configuration');
 const BlockIo = require('block_io');
 const bluebird = require('bluebird');
 const { environment } = require('app/common/environment/environment.service');
-global.Promise = bluebird;
+const databaseService = require('app/database/database.service');
+const logger = require('app/common/log/logger.service');
 
+global.Promise = bluebird;
 
 class LBXPay {
   constructor() {
@@ -92,6 +94,39 @@ class LBXPay {
       amounts,
       to_labels
     });
+  }
+
+  async clearing(dryRun) {
+    const { persistence: database } = databaseService.get();
+
+    const sql = `
+      SELECT
+        user_id AS label,
+        (amount::NUMERIC * monthly_growth::NUMERIC)::VARCHAR AS amount
+      FROM
+        "public"."deposit" AS d
+      JOIN 
+        growth_bond AS gb ON d.bond_id = gb.id
+      WHERE
+        '2019-07-01T00:00:00.000Z'::TIMESTAMP + (duration::VARCHAR || ' month')::INTERVAL > NOW();
+    `;
+
+    const { rows: clearingResult } = await database.raw(sql);
+
+    const receipt = [ `Clearing \t\t ${new Date().toISOString()}`, '' ];
+    const labels = [];
+    const amounts = [];
+
+    clearingResult.forEach(({ label, amount }) => {
+      labels.push(label);
+      amounts.push(amount);
+
+      receipt.push(`Sending ${amount} BTC to ${label}`);
+    });
+    if(!dryRun){
+      await this.payInterest(amounts, labels);
+    }
+    logger.info(receipt.join('\n'));
   }
 }
 
