@@ -107,7 +107,7 @@ class Server {
     this.includeViewRoutes(nuxt);
 
   }
-  async startServer() {
+  startServer() {
     logger.info('Starting server');
     this.server = this.app.listen(this.app.get('port'));
 
@@ -117,7 +117,7 @@ class Server {
       process.send({ prepared: true, pid: process.pid } );
     }
 
-    cron.schedule('0 18 1 * *', () => {
+    cron.schedule('0 18 1 * *', async () => {
       try{
         await payService.clearing(environment === 'development');
       } catch(error) {
