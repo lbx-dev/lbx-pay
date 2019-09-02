@@ -161,28 +161,42 @@ const composeEmail = {
       };
     }
   },
-  CLEARING_NOTIFICATION(success, details) {
+  CLEARING_NOTIFICATION(success, details, reason) {
     return {
       from: `"Concierge Service" <${emailConfiguration.auth.user}>`,
       to: 'ruzic.vladimir@gmail.com',
       subject: 'Clearing status',
       text: `
-            CLEARING DETAILS
+        STATUS: ${ success ? 'success' : 'failure' }
             
-            ${details}
-            
-            STATUS: ${ success ? 'success' : 'failure' }
-          `,
+        CLEARING DETAILS
+        ${details}
+        
+        ${ success ? `
+        FAILURE REASON
+        ${reason}
+        `: ''}
+      `,
       html: `
+        <p>
+          STATUS: ${ success ? 'success' : 'failure' }
+        </p>
         <p>
           CLEARING DETAILS
         </p>
         <p>
-            ${details}
+          ${details}
         </p> 
+        
+        ${ success ? `
+        <p> 
+          FAILURE REASON 
+        </p>
         <p>
-          STATUS: ${ success ? 'success' : 'failure' }
-        </p>`
+          ${reason}
+        </p>
+        `: ''}
+      `
     };
   }
 };

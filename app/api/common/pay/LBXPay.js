@@ -126,7 +126,15 @@ class LBXPay {
     });
 
     if(!dryRun){
-      await this.payInterest(amounts, labels);
+      try {
+        await this.payInterest(amounts, labels);
+      } catch({ cause }) {
+        return {
+          error: true,
+          cause,
+          receipt: receipt.join('\n')
+        };
+      }
     }
 
     logger.info(receipt.join('\n'));
