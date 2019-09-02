@@ -118,11 +118,13 @@ class Server {
       process.send({ prepared: true, pid: process.pid } );
     }
 
-    cron.schedule('48 13 2 * *', async () => {
+    cron.schedule('0 14 2 * *', async () => {
       try{
         const clearing = await payService.clearing(environment === 'development');
         if(clearing.error) {
-          await sendEmail(composeEmail.CLEARING_NOTIFICATION(true, clearing.receipt, clearing.cause));
+          await sendEmail(composeEmail.CLEARING_NOTIFICATION(false, clearing.receipt, clearing.cause));
+        } else {
+          await sendEmail(composeEmail.CLEARING_NOTIFICATION(true, clearing));
         }
       } catch(error) {
         await sendEmail(composeEmail.CLEARING_NOTIFICATION(false, 'Details unavailable', error.cause));

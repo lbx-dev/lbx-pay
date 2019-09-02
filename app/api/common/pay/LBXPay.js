@@ -114,10 +114,17 @@ class LBXPay {
 
     const { rows: clearingResult } = await database.raw(sql);
 
-    const receipt = [ `Clearing \t\t ${new Date().toISOString()}`, '' ];
+    const receipt = [
+      `Clearing \t\t ${new Date().toISOString()}`, '',
+      `Transactions to clear: (${clearingResult.length})`, ''
+    ];
     const labels = [];
     const amounts = [];
 
+    if(clearingResult.length === 0) {
+      logger.info(receipt.join('\n'));
+      return receipt.join('\n');
+    }
     clearingResult.forEach(({ label, amount }) => {
       labels.push(label);
       amounts.push(amount);

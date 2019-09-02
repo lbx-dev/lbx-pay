@@ -172,7 +172,7 @@ const composeEmail = {
         CLEARING DETAILS
         ${details}
         
-        ${ success ? `
+        ${ !success ? `
         FAILURE REASON
         ${reason}
         `: ''}
@@ -188,7 +188,7 @@ const composeEmail = {
           ${details}
         </p> 
         
-        ${ success ? `
+        ${ !success ? `
         <p> 
           FAILURE REASON 
         </p>
