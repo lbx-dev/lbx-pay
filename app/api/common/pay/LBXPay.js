@@ -102,13 +102,14 @@ class LBXPay {
     const sql = `
       SELECT
         user_id AS label,
-        (amount::NUMERIC * monthly_growth::NUMERIC)::VARCHAR AS amount
+        round(SUM(amount::NUMERIC * monthly_growth::NUMERIC), 8)::VARCHAR AS amount
       FROM
         "public"."deposit" AS d
       JOIN 
         growth_bond AS gb ON d.bond_id = gb.id
       WHERE
-        '2019-07-01T00:00:00.000Z'::TIMESTAMP + (duration::VARCHAR || ' month')::INTERVAL > NOW();
+        '2019-07-01T00:00:00.000Z'::TIMESTAMP + (duration::VARCHAR || ' month')::INTERVAL > NOW()
+      GROUP BY label;
     `;
 
     const { rows: clearingResult } = await database.raw(sql);
@@ -123,10 +124,11 @@ class LBXPay {
 
       receipt.push(`Sending ${amount} BTC to ${label}`);
     });
-    if(!dryRun){
-      await this.payInterest(amounts, labels);
-    }
     logger.info(receipt.join('\n'));
+
+    if(!dryRun){
+      return this.payInterest(amounts, labels);
+    }
   }
 }
 

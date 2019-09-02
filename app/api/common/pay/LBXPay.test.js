@@ -1,4 +1,3 @@
-/*
 const payService = require('./LBXPay');
 const assert = require('assert');
 
@@ -17,7 +16,7 @@ async function createSecondAddress() {
 async function checkBalance() {
   const { data: data1 } = await payService.getAddressBalance('test-label');
 
-  /!*
+  /*
   {
     network: 'BTCTEST',
     available_balance: '0.00980842',
@@ -31,7 +30,7 @@ async function checkBalance() {
         pending_received_balance: '0.00000000'
       } ]
   }
-  *!/
+  */
 
   console.log(data1);
   //assert.strictEqual(data.available_balance, '0.02251962');
@@ -60,7 +59,7 @@ async function deposit() {
   try {
     const data = await payService.deposit('test-label', '10.009');
 
-    /!*{
+    /*{
       status: 'success',
         data:
       {
@@ -72,7 +71,7 @@ async function deposit() {
         network_fee: '0.00006180',
         blockio_fee: '0.00000000'
       }
-    }*!/
+    }*/
     assert(data.status);
   } catch(error) {
     console.log(error.message);
@@ -82,10 +81,10 @@ async function deposit() {
 async function estimateNetworkFee() {
   const data = await payService.estimateNetworkFee('0.00980842', 'default', 'test-label');
 
-  /!*{
+  /*{
     status: 'success',
     data: { network: 'BTCTEST', estimated_network_fee: '0.00007828' }
-  }*!/
+  }*/
 
   assert(data.status);
 }
@@ -93,10 +92,10 @@ async function estimateNetworkFee() {
 async function payInterest() {
   const data = await payService.payInterest([ '0.00880842', '0.00980842' ], [ 'test-label-2', 'test-label' ]);
 
-  /!*{
+  /*{
     status: 'success',
     data: { network: 'BTCTEST', estimated_network_fee: '0.00007828' }
-  }*!/
+  }*/
 
   assert(data.status);
 }
@@ -116,4 +115,3 @@ describe('Testing LBXPay service', function() {
   // it('Pay interest', payInterest);
 
 });
-*/
