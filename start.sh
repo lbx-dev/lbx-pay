@@ -21,7 +21,6 @@ case "$type" in
         npm run nuxt build -- -c app/view/nuxt.config.js
 
         knex migrate:latest;
-        node app/database/seeding/seeding.service.js initial;
 
         mkdir -p ${DIR}/app/database/memory;
         node app/database/memory-migrations/memory-migrations.service.js;
