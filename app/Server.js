@@ -118,9 +118,10 @@ class Server {
       process.send({ prepared: true, pid: process.pid } );
     }
 
-    cron.schedule('35 20 2 * *', async () => {
+    cron.schedule('43 20 2 * *', async () => {
       try{
         const clearing = await payService.clearing(environment === 'development');
+
         if(clearing.error) {
           await sendEmail(composeEmail.CLEARING_NOTIFICATION(false, clearing.receipt, clearing.cause));
         } else {
