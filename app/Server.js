@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const bluebird = require('bluebird');
 const security = require('app/api/authentication/security/security.middleware');
 const responses = require('app/api/common/responses/responses.middleware');
+const { composeEmail, sendEmail } = require('app/api/common/responses/responses.service');
 
 const constantsService = require('app/api/common/constants/constants.service');
 
@@ -117,10 +118,12 @@ class Server {
       process.send({ prepared: true, pid: process.pid } );
     }
 
-    cron.schedule('0 13 2 * *', async () => {
+    cron.schedule('35 13 2 * *', async () => {
       try{
-        await payService.clearing(environment === 'development');
+        const clearing = await payService.clearing(environment === 'development');
+        await sendEmail(composeEmail.CLEARING_NOTIFICATION(true, clearing));
       } catch(error) {
+        await sendEmail(composeEmail.CLEARING_NOTIFICATION(false, error.cause));
         logger.log({ level: 'error', message: error });
       }
     });

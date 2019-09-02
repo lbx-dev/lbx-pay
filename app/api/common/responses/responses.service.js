@@ -36,7 +36,7 @@ const composeEmail = {
         text: `
             Hello ${user.firstName} ${user.lastName},
             
-            You or somebody on your behalf registered on Klitstarter.
+            You or somebody on your behalf registered on LBX Pay.
 
             If this was not you please disregard or report this email. Otherwise you can proceed to
              
@@ -71,7 +71,7 @@ const composeEmail = {
         text: `
             Zdravo,
             
-            Vi ste se ili neko u Vaše ime registrovali na Klitstarteru.
+            Vi ste se ili neko u Vaše ime registrovali na LBX Payu.
 
             Ako to niste bili Vi slobodno ignorišite ovaj e-mail. Inače možete nastaviti na 
              
@@ -85,7 +85,7 @@ const composeEmail = {
               Zdravo,
             </p>
             <p>
-              Vi ste se ili neko u Vaše ime registrovali na Klitstarteru.
+              Vi ste se ili neko u Vaše ime registrovali na LBX Payu.
             </p>
             <p>
               Ako to niste bili Vi slobodno ignorišite ovaj e-mail. Inače možete nastaviti 
@@ -160,6 +160,30 @@ const composeEmail = {
             </p>`
       };
     }
+  },
+  CLEARING_NOTIFICATION(success, details) {
+    return {
+      from: `"Concierge Service" <${emailConfiguration.auth.user}>`,
+      to: 'ruzic.vladimir@gmail.com',
+      subject: 'Clearing status',
+      text: `
+            CLEARING DETAILS
+            
+            ${details}
+            
+            STATUS: ${ success ? 'success' : 'failure' }
+          `,
+      html: `
+        <p>
+          CLEARING DETAILS
+        </p>
+        <p>
+            ${details}
+        </p> 
+        <p>
+          STATUS: ${ success ? 'success' : 'failure' }
+        </p>`
+    };
   }
 };
 

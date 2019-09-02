@@ -124,11 +124,13 @@ class LBXPay {
 
       receipt.push(`Sending ${amount} BTC to ${label}`);
     });
-    logger.info(receipt.join('\n'));
 
     if(!dryRun){
-      return this.payInterest(amounts, labels);
+      await this.payInterest(amounts, labels);
     }
+
+    logger.info(receipt.join('\n'));
+    return receipt.join('\n');
   }
 }
 
